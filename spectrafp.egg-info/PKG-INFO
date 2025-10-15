@@ -1,0 +1,106 @@
+Metadata-Version: 2.4
+Name: spectrafp
+Version: 2.0.0
+Summary: Spectroscopy-based molecular fingerprints for cheminformatics applications
+Home-page: https://github.com/jeffrichardchemistry/SpectraFP
+Author: Jefferson Richard
+Author-email: Jefferson Richard <jrichardquimica@gmail.com>
+Maintainer-email: Jefferson Richard <jrichardquimica@gmail.com>
+License: GPL-3.0
+Project-URL: Homepage, https://github.com/jeffrichardchemistry/SpectraFP
+Project-URL: Repository, https://github.com/jeffrichardchemistry/SpectraFP
+Project-URL: Documentation, https://github.com/jeffrichardchemistry/SpectraFP
+Project-URL: Bug Tracker, https://github.com/jeffrichardchemistry/SpectraFP/issues
+Keywords: cheminformatics,chemistry,qsar,qspr,fingerprint,spectroscopy,nmr
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: tqdm>=4.60.0
+Requires-Dist: click>=8.0.0
+Requires-Dist: rich>=10.0.0
+Requires-Dist: scikit-learn>=1.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=22.0; extra == "dev"
+Requires-Dist: isort>=5.0; extra == "dev"
+Requires-Dist: flake8>=4.0; extra == "dev"
+Provides-Extra: parallel
+Requires-Dist: parallel-pandas>=1.0.0; extra == "parallel"
+Requires-Dist: numba>=0.54.1; extra == "parallel"
+Provides-Extra: visualization
+Requires-Dist: matplotlib>=3.0.0; extra == "visualization"
+Requires-Dist: plotly>=5.0.0; extra == "visualization"
+Requires-Dist: seaborn>=0.11.0; extra == "visualization"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+
+[![DOI](https://zenodo.org/badge/363234585.svg)](https://zenodo.org/badge/latestdoi/363234585) [![PyPI version](https://img.shields.io/pypi/v/spectrafp)](https://pypi.python.org/pypi/spectrafp) [![PyPI Downloads](https://pepy.tech/badge/spectrafp)](https://pepy.tech/project/spectrafp)
+
+# Publication
+
+This is the official repository for the article entitled: "SpectraFP: a new spectra-based descriptor to aid in cheminformatics, molecular characterization and search algorithm applications" published in the journal Physical Chemistry Chemical Physics (PCCP).
+
+DOI: [https://doi.org/10.1039/D3CP00734K](https://doi.org/10.1039/D3CP00734K)
+
+### How to cite
+**Bibtex**:
+```
+@article{dias2023spectrafp,
+  title={SpectraFP: a new spectra-based descriptor to aid in cheminformatics, molecular characterization and search algorithm applications},
+  author={Dias-Silva, Jefferson R and Oliveira, Vitor M and Sanches-Neto, Fl{\'a}vio O and Wilhelms, Renan Z and J{\'u}nior, Luiz HK Queiroz},
+  journal={Physical Chemistry Chemical Physics},
+  volume={25},
+  number={27},
+  pages={18038--18047},
+  year={2023},
+  publisher={Royal Society of Chemistry}
+}
+```
+**Text**:
+```
+Dias-Silva, Jefferson R., et al. "SpectraFP: a new spectra-based descriptor to aid in cheminformatics, molecular characterization and search algorithm applications." Physical Chemistry Chemical Physics 25.27 (2023): 18038-18047.
+```
+```
+Dias-Silva, J. R., Oliveira, V. M., Sanches-Neto, F. O., Wilhelms, R. Z., & Júnior, L. H. Q. (2023). SpectraFP: a new spectra-based descriptor to aid in cheminformatics, molecular characterization and search algorithm applications. Physical Chemistry Chemical Physics, 25(27), 18038-18047.
+```
+```
+DIAS-SILVA, Jefferson R., et al. SpectraFP: a new spectra-based descriptor to aid in cheminformatics, molecular characterization and search algorithm applications. Physical Chemistry Chemical Physics, 2023, 25.27: 18038-18047.
+``` 
+
+# SpectraFP
+SpectraFP is a package to perform fingerprints from spectroscopy datas. The goal is to transform a list of spectroscopy signals - such as nmr and infrared - into a binary vector of zeros and ones. One means that there is a sign and zero absence.
+
+## Install
+<b>Via pypi</b>
+```
+$ pip install spectrafp
+```
+
+<b>Via github</b>
+```
+$ git clone https://github.com/jeffrichardchemistry/SpectraFP
+$ cd SpectraFP
+$ python3 setup.py install
+```
+
+# Tutorials
+Tutorials on how to use this package as well as loading the databases are available in the jupyter-notebook file in `example/how_to_use.ipynb` and `Reading pickle data.ipynb`respectively.

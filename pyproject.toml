@@ -1,0 +1,107 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spectrafp"
+version = "2.0.0"
+description = "Spectroscopy-based molecular fingerprints for cheminformatics applications"
+readme = "README.md"
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "Jefferson Richard", email = "jrichardquimica@gmail.com"},
+]
+maintainers = [
+    {name = "Jefferson Richard", email = "jrichardquimica@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+]
+keywords = ["cheminformatics", "chemistry", "qsar", "qspr", "fingerprint", "spectroscopy", "nmr"]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20.0",
+    "pandas>=1.3.0",
+    "tqdm>=4.60.0",
+    "click>=8.0.0",
+    "rich>=10.0.0",
+    "scikit-learn>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=4.0",
+]
+parallel = [
+    "parallel-pandas>=1.0.0",
+    "numba>=0.54.1",
+]
+visualization = [
+    "matplotlib>=3.0.0",
+    "plotly>=5.0.0",
+    "seaborn>=0.11.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jeffrichardchemistry/SpectraFP"
+Repository = "https://github.com/jeffrichardchemistry/SpectraFP"
+Documentation = "https://github.com/jeffrichardchemistry/SpectraFP"
+"Bug Tracker" = "https://github.com/jeffrichardchemistry/SpectraFP/issues"
+
+[project.scripts]
+spectrafp = "spectrafp.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["spectrafp*", "SpectraFP*"]
+
+[tool.setuptools.package-data]
+spectrafp = ["*.csv", "*.txt", "*.md", "data/*", "models/*"]
+SpectraFP = ["*.csv", "*.txt", "*.md", "data/*", "models/*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["spectrafp", "SpectraFP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["spectrafp", "SpectraFP"]
+omit = ["*/tests/*", "*/test_*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
